@@ -20,4 +20,4 @@
     src: /tmp/WAR/target/hello-1.0.war
     dest: /var/lib/tomcat9/webapps/hello-1.0.war
     mode: pull
-    delegate_to: app
+  delegate_to: app
