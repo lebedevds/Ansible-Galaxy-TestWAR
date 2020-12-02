@@ -14,10 +14,3 @@
 
 - name: Ensure war file is ready
   command: mvn package -f /tmp/WAR/pom.xml
-
-- name: Copy war file to app server
-  synchronize:
-    src: /tmp/WAR/target/hello-1.0.war
-    dest: /var/lib/tomcat9/webapps/hello-1.0.war
-    mode: pull
-  delegate_to: app

@@ -4,3 +4,5 @@
   apt:
     name: tomcat9
     state: present
+  notify:
+    - Copy war file to app server
