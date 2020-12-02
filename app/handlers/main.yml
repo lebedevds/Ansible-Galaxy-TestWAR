@@ -4,5 +4,6 @@
   synchronize:
     src: /tmp/WAR/target/hello-1.0.war
     dest: /var/lib/tomcat9/webapps/hello-1.0.war
+    private_key: /root/.ssh/id_rsa
     mode: push
   delegate_to: build
