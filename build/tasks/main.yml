@@ -5,7 +5,7 @@
   with_items:
     - maven
     - git
-    - defauil-jdk
+    - default-jdk
 
 - name: Ensure the git repository is cloned
   git:
