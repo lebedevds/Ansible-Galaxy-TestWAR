@@ -1,0 +1,14 @@
+---
+- name: build server configuration
+  hosts: build
+  became: yes
+
+  roles:
+    - build
+
+- name: app server configuration
+  hosts: app
+  became: yes
+
+  roles:
+    - app

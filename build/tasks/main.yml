@@ -1,2 +1,23 @@
 ---
 # tasks file for build
+- name: install packages
+  apt: name={{item}} state=installed
+  with_items:
+    - maven
+    - git
+    - defauil-jdk
+
+- name: Ensure the git repository is cloned
+  git:
+    repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
+    dest: /tmp/WAR
+
+- name: Ensure war file is ready
+  command: mvn package -f /tmp/WAR/pom.xml
+
+- name: Copy war file to app server
+  synchronize:
+    src: /tmp/WAR/target/hello-1.0.war
+    dest: /var/lib/tomcat9/webapps/hello-1.0.war
+    mode: pull
+    delegate_to: app
